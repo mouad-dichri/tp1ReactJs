@@ -1,21 +1,19 @@
 import StudentItem from "./StudentItem";
+import { useState } from 'react';
+export default function Students(props) {
 
-export default function Students(){
+    const [key, setKey] = useState("");
 
-    const students=[
-        {id:0,nom:'DICHRI',prenom:'MOUAD'},
-        {id:1,nom:'SALMI',prenom:'MED'},
-        {id:2,nom:'ALAOUI',prenom:'AHMED'}
-    ];
+    return <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div><input type="text" name="kw" value={key} onChange={(e) => setKey(e.target.value)} /></div>
+      <div>   {props.list.filter((std) => { return std.nom.includes(key.toUpperCase()) || std.prenom.includes(key.toUpperCase()) })
+            .map((std, idx) => {
 
-    return <div style={{display:'flex',flexDirection:'column'}}>
-{students.map((std,idx)=>
-{
+                return <div><StudentItem key={std.id} student={std} index={idx} /></div>
+            }
+            )}</div>
+     
+    </div>
 
-    return <StudentItem key={std.id} student={std} index={idx} />
-}
-)}
-</div>
 
-    
 }
