@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 export default 
-function StudentItem(props){
+function ClassItem(props){
 
       return <button style={{
             width: 100, 
@@ -15,7 +16,8 @@ function StudentItem(props){
             border:0, 
             
        }}>
-            {props.student.first_name} 
-            {props.student.last_name} 
+           <Link to={`/classes/${props.classe.id}/students`}>
+           {props.classe.desc} -
+          Etage : {props.classe.etage} </Link> 
     </button>
 }

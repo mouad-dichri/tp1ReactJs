@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 export default 
-function StudentItem(props){
+function PostItem(props){
 
       return <button style={{
             width: 100, 
@@ -9,13 +10,13 @@ function StudentItem(props){
             margin: 10,
             background: props.index % 2?
                          '#ccc':'#eee', 
-            color: '#FFF', 
+            color: 'black', 
             padding: 10, 
             borderRadius: 7, 
             border:0, 
             
        }}>
-            {props.student.first_name} 
-            {props.student.last_name} 
+         {props.post.title} 
+        
     </button>
 }

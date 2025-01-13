@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import Student from './Students';
+import Header from "./Header";
+import Main from "./Main";
+import MenuLeft from "./MenuLeft";
+import {BrowserRouter} from 'react-router-dom'
+// import StudentsList from "./Students";
+// import Welcome, { Welcome3 } from "./Welcome";
+
 
 
 function App() {
-  
-  const students=[
-    {id:0,nom:'DICHRI',prenom:'MOUAD'},
-    {id:1,nom:'SALMI',prenom:'MED'},
-    {id:2,nom:'ALAOUI',prenom:'AHMED'},
-    {id:0,nom:'LOTFI',prenom:'AMINA'},
-    {id:1,nom:'SALO',prenom:'GHIZLANE'}
-];
   return (
-    <div className="App" style={{padding:20}}>
-
-     
-    <Student list={students} />
-    </div>
+    <BrowserRouter>
+    <div style={{padding: 20, 
+        display: 'flex'}}>
+      <div style={{width: 200, 
+        border: '1px solid #ccc'}}>
+        <MenuLeft/>
+      </div>
+      <div style={{display: 'flex', 
+        flexDirection:'column', 
+        flex: 1, border: '1px solid #ccc'}}>
+        <Header/>
+        <Main/>
+      </div>
+    </div></BrowserRouter>
   );
 }
 
